@@ -1,4 +1,4 @@
-  {
+const employees = [{
     firstName: "Porty",
     lastName: "Simoni",
     email: "psimoni0@opensource.org",
@@ -9,7 +9,7 @@
     lastName: "MacPeake",
     email: "rmacpeake1@people.com.cn",
     salary: "$1152.05"
-  },const employees = [
+  },
 
   {
     firstName: "Lina",
