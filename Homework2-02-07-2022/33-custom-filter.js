@@ -8,6 +8,6 @@ Array.prototype.myFilter = function (callBack,thisArg= this) {
   return filteredArr
 }
 let arr = [1,2,3,4,6,7,8]
-console.log(arr.myFilter((el,index) => {
+console.log(arr.myFilter((el) => {
  return el < 5
 }))
