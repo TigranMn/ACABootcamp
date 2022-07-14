@@ -16,3 +16,4 @@ let arr = [1, 2, 3, 4];
 
 console.log(arr);
 console.log(arr.myUnshift(5, 6, [-3]));
+console.log(arr)
