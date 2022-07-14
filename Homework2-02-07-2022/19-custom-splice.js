@@ -1,4 +1,4 @@
-Array.prototype.mySplice = function(start=0, deleteCount= this.length - start, ...args) {debugger
+Array.prototype.mySplice = function(start=0, deleteCount= this.length - start, ...args) {
    if (deleteCount < 0) {
       deleteCount = 0
    }
