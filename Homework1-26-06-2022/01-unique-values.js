@@ -1,17 +1,14 @@
-function getUniqueValues(arr) {
-  let uniqueValues;
-  main: for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      if (i === j) {
-        continue;
-      }
-      if (arr[i] === arr[j]) {
-        continue main;
-      }
-    }
-    uniqueValues = arr[i];
+function getUniqueValues(arr) {debugger
+  let uniqueValues = {};
+  arr.forEach((el) => {
+    uniqueValues[el] ? (uniqueValues[el] += 1) 
+                     : (uniqueValues[el] = 1);
+  });
+  for (let val in uniqueValues) {debugger
+    uniqueValues[val] !== 1 ? delete uniqueValues[val] 
+                            : "";
   }
-  return uniqueValues;
+  return Object.keys(uniqueValues);
 }
 
 console.log(

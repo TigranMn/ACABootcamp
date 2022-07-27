@@ -28,7 +28,7 @@ Array.prototype.mySplice = function(start=0, deleteCount= this.length - start, .
 }
  
 var arr = ['angel', 'clown', 'drum', 'sturgeon'];
-var removed = arr.mySplice(-2,1);
+var removed = arr.mySplice(-8,1,'dada','zaza');
 console.log(arr)
 console.log(removed)
 
