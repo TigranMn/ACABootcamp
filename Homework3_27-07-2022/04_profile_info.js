@@ -1,18 +1,31 @@
-function ProfileInfo() {
-   this.setUsername = (username) => this.username = username
-   this.getUsername = () => this.username
-   this.setEmail = (email) => this.email = email
-   this.getEmail = () => this.email
-   this.setAddress = (adress) => this.adress = adress
+class ProfileInfo {
+   constructor() {
+   }
+   setUsername(username) { this.username = username}
+   getUsername() {return this.username}
+   setEmail(email) {this.email = email}
+   getEmail() {return this.email}
+   setAddress(adress) {this.adress = adress}
 }
 
-function User() {
-   this.setName = (name) => this.name = name
-   this.getName = () => this.name
-   this.setAge = (age) => this.age = age
-   this.getAge = () => this.age
-   this.setProfileInfo = (info) => this.profileInfo = info
-   this.getProfileInfo = () => this.profileInfo
+class User {
+ constructor() {}
+setName(name) {
+   this.name = name
+}
+ getName() {
+   return this.name
+}
+ setAge(age) {
+   this.age = age
+ }
+ getAge(){
+   return this.age}
+ setProfileInfo(info) {
+   this.profileInfo = info
+ }
+ getProfileInfo(){
+   return this.profileInfo}
 }
 const profileInfo = new ProfileInfo()
 profileInfo.setUsername('Shinigami');
@@ -29,4 +42,4 @@ console.log(user.getAge());
 user.setProfileInfo(new ProfileInfo);
 console.log(user.getProfileInfo());
 
-console.log(user)
+console.log(profileInfo)
