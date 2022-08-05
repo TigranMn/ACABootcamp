@@ -3,17 +3,18 @@ class University {
     this.teachers = []
     this.students = []
   };
-  addMember(member) {
-     member.role === 'Student' ? this.students.push(member)
-                               : this.teachers.push(member)
+  addMember (...member){
+    member.forEach(el => {
+    el.role === "Student" ? this.students.push(el)
+                          : this.teachers.push(el)
+})
+}
+  removeMember(...member) {
+      member.forEach(person => {
+      person.role === 'Student' ?  this.students =  this.students.filter(el => el.id !== person.id)
+                                :  this.teachers = this.teachers.filter(el => el.id !== person.id)
+     })
   }
-  removeMember(member) {
-     if(member.role === 'Student') {
-       this.students =  this.students.filter(el => el.id !== member.id)
-     } else {
-       this.teachers = this.teachers.filter(el => el.id !== member.id)
-     }
-  };
   startLesson() {
      this.teachers.forEach(el => el.energy-= 5)
      this.students.forEach(el => el.energy-= 2)
@@ -22,9 +23,8 @@ class University {
 
 class UniversityMember {
   constructor(id,name,age,energy = 24) {
-    if(typeof name === 'string') {
-      this.name = name
-    } 
+    this.name = String(name)
+    
     if(typeof age === 'number' && !isNaN(age)) {
       this.age = age
     }
@@ -53,13 +53,13 @@ class Teacher extends UniversityMember {
   }
 }
 
-let student1 = new Student(1,'Tiko',22,50)
-let teacher1 = new Teacher(2,'Davo',29,55)
-let student2 = new Student(3,'Suro',21,45)
-let university = new University()
-university.addMember(student1)
-university.addMember(teacher1)
-university.addMember(student2)
+const firstStudent = new Student(1,'Tiko',22,50)
+const firstTeacher = new Teacher(2,'David',27,55)
+const secondStudent = new Student(3,'Suro',21,45)
+const secondTeacher = new Teacher (4,'Armen',25,30)
+const university = new University()
+university.addMember(firstStudent,secondStudent,firstTeacher,secondTeacher)
+university.removeMember(secondTeacher,secondStudent)
 
 university.startLesson()
 console.log(university)

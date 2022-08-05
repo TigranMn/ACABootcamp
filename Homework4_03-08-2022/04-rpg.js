@@ -92,11 +92,11 @@ class Undead extends Character {
    }
 }
 
-let swordsman = new Swordsman('sword','Swordsman')
-let daemon = new Daemon('daem','Daemon')
-let magician = new Magician('magic','Magician')
-let undead = new Undead('undead','Undead')
-let zombie = new Zombie('zombie','Zombie')
+const swordsman = new Swordsman('sword','Swordsman')
+const daemon = new Daemon('daem','Daemon')
+const magician = new Magician('magic','Magician')
+const undead = new Undead('undead','Undead')
+const zombie = new Zombie('zombie','Zombie')
 daemon.damage(50)
 daemon.damage(70)
 daemon.damage(20)

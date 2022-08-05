@@ -5,5 +5,5 @@ class Abstract {
   }
 }
 }
-let abs = new Abstract()
-console.log(abs)
+const abstract = new Abstract()
+console.log(abstract)

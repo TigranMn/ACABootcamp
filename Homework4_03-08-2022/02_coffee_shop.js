@@ -3,9 +3,10 @@ function CoffeeShop(name,menu) {
   this.menu = menu
   this.orders = []
   this.addOrder = (order) => {
-    let item = this.menu.find(el => {
+    const item = this.menu.find(el => {
       return el.name === order
       })
+
     if(item) {
       this.orders.push(item)
     } else {
@@ -15,7 +16,6 @@ function CoffeeShop(name,menu) {
 
   this.fulfillOrder = () => {
     if(this.orders.length) {
-      
       return `The ${this.orders.shift().name} is ready`
     } 
     return 'All orders have been fulfilled'
@@ -52,11 +52,11 @@ function MenuItem(name,type,price) {
   this.type = type
   this.price = price
 }
-let hotCocoa = new MenuItem('Iced tea','Drink',1.50)
-let chicken = new MenuItem('Chicken','Food',2.50)
-let icedTea = new MenuItem('hot cocoa','Food',1)
-let menu = [hotCocoa,chicken,icedTea]
-let coffeeShop = new CoffeeShop('Underground', menu)
+const icedTea = new MenuItem('Iced tea','Drink',1.50)
+const chicken = new MenuItem('Chicken','Food',2.50)
+const hotCocoa = new MenuItem('Hot cocoa','Food',1)
+const menu = [hotCocoa,chicken,icedTea]
+const coffeeShop = new CoffeeShop('Underground', menu)
 coffeeShop.addOrder('Chicken')
 coffeeShop.addOrder('Iced tea')
-console.log(coffeeShop.foodOnly())
+console.log(coffeeShop.fulfillOrder())
