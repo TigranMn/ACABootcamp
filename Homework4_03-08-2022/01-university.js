@@ -5,14 +5,14 @@ class University {
   };
   addMember (...member){
     member.forEach(el => {
-    el.role === "Student" ? this.students.push(el)
-                          : this.teachers.push(el)
+      el.role === "Student" ? this.students.push(el)
+                            : this.teachers.push(el)
 })
 }
   removeMember(...member) {
       member.forEach(person => {
-      person.role === 'Student' ?  this.students =  this.students.filter(el => el.id !== person.id)
-                                :  this.teachers = this.teachers.filter(el => el.id !== person.id)
+        person.role === 'Student' ?  this.students =  this.students.filter(el => el.id !== person.id)
+                                  :  this.teachers = this.teachers.filter(el => el.id !== person.id)
      })
   }
   startLesson() {

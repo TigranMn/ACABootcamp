@@ -1,48 +1,56 @@
-// function Person(name, id, age) {
-//   this.id = id;
-//   this.name = name;
-//   this.age = age;
-//   this.friends = [];
 
-//   this.addFriend = function (person) {
-//     this.hasFriend(person)
-//       ? console.log("Already friend")
-//       : this.friends.push(person);
-//   };
-
-//   this.hasFriend = function (person) {
-//     return this.friends.some((el) => {
-//       return el.id === person.id;
-//     });
-//   };
-
-//   this.searchFriends = function (filtersList) {
-//     return this.friends.filter((el) => {
-//       for (let filter in filtersList) {
-//         if (filtersList[filter] !== el[filter]) {
-//           return false;
-//         }
-//         return true;
-//       }
-//     });
-//   };
-// }
-// const Despacito = new Person("Despacito", 1, 22);
-// const Vahe = new Person("Vahe", 2, 23);
-// const Arman = new Person("Arman", 3, 22);
-// const Suren = new Person("Suren", 4, 21);
-// const Despacito2 = new Person("Despacito", 6, 22);
-
-// Suren.addFriend(Arman);
-// Suren.addFriend(Vahe);
-// Suren.addFriend(Despacito);
-// Suren.addFriend(Vahe);
-// Suren.addFriend(Despacito2);
-// console.log(Suren.searchFriends({ name: "Despacito", age: 22 }));
-let a = {
-  name: 'dada'
+// Exercise 7 Shopping Cart
+class Product {
+  constructor(name, type, price) {
+    this.name = name;
+    this.type = type;
+    this.price = price;
+  }
 }
-Object.defineProperty(a, 'age' ,{ value: 21
-})
-console.log(a)
-console.log(Object.keys(a))
+class ShoppingCart {
+  constructor(products = []) {
+    this.products = products;
+  }
+  addProduct(product) {
+    this.products.push(product);
+  }
+  removeProduct(product) {
+    let productIndex = this.products.indexOf(product);
+    this.products.splice(productIndex, 1);
+  }
+  totalPrice() {
+    let totalSum = this.products.reduce(
+      (current, item) => current + item.price,
+      0
+    );
+    let obj = this.products.reduce((current, item) => {
+      if (current[item.name]) {
+        current[item.name]++;
+      } else {
+        current[item.name] = 1;
+      }
+      return current;
+    }, {});
+    for (let key in obj) {
+      if (obj[key] >= 3) {
+        let price = this.products.find((product) => product.name === key).price;
+        totalSum -= ((obj[key] - (obj[key] % 3)) / 3) * price;
+      }
+    }
+    if (this.products.length >= 5) {
+      return (totalSum * 90) / 100;
+    } else {
+      return totalSum;
+    }
+  }
+}
+const cart1 = new ShoppingCart();
+const product1 = new Product('Cola', 'drink', 500);
+const product2 = new Product('Coffee', 'drink', 300);
+cart1.addProduct(product1);
+cart1.addProduct(product2);
+cart1.addProduct(product2);
+cart1.addProduct(product2);
+cart1.addProduct(product2);
+console.log(cart1.products);
+console.log(cart1.totalPrice());

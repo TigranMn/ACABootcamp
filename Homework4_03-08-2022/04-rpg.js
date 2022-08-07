@@ -11,7 +11,7 @@ class Character {
       } else {
          this.type =  type
       }
-      
+      new Bowerman()
    }
    levelUp() {
       if(this.health > 0) {
@@ -91,7 +91,7 @@ class Undead extends Character {
       this.defence = 25
    }
 }
-
+const char = new Character('dadsada','Swordsman')
 const swordsman = new Swordsman('sword','Swordsman')
 const daemon = new Daemon('daem','Daemon')
 const magician = new Magician('magic','Magician')
@@ -102,4 +102,4 @@ daemon.damage(70)
 daemon.damage(20)
 daemon.levelUp()
 
-console.log(daemon)
+console.log(char)

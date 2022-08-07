@@ -5,5 +5,13 @@ class Abstract {
   }
 }
 }
-const abstract = new Abstract()
-console.log(abstract)
+
+class Subabstract extends Abstract {
+  constructor() {
+    super()
+    this.type = 'subabstract'
+  }
+}
+let s = new Subabstract()
+console.log(s)
+console.log(s.constructor.name)
