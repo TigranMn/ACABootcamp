@@ -24,15 +24,9 @@ class University {
 class UniversityMember {
   constructor(id,name,age,energy = 24) {
     this.name = String(name)
-    
-    if(typeof age === 'number' && !isNaN(age)) {
-      this.age = age
-    }
-    if(typeof energy === 'number' && !isNaN(energy)) {
-     this.energy = energy
-   }
-   this.id = id
-    
+    this.age = age
+    this.energy = energy
+    this.id = id
   }
   info() {
     return this

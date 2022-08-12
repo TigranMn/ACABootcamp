@@ -12,6 +12,6 @@ class Subabstract extends Abstract {
     this.type = 'subabstract'
   }
 }
-let s = new Subabstract()
-console.log(s)
-console.log(s.constructor.name)
+let sub = new Subabstract()
+console.log(sub)
+console.log(sub.constructor.name)

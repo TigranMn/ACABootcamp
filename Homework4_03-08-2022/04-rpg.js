@@ -11,7 +11,6 @@ class Character {
       } else {
          this.type =  type
       }
-      new Bowerman()
    }
    levelUp() {
       if(this.health > 0) {
@@ -102,4 +101,4 @@ daemon.damage(70)
 daemon.damage(20)
 daemon.levelUp()
 
-console.log(char)
+console.log(daemon)

@@ -29,8 +29,8 @@ class ShoppingCart {
       if(toAdd) {
          toAdd.quantity +=1
       } else {
-         this.cart.push({...product})
-         this.cart[this.cart.length-1].quantity = 1
+         this.cart.push({...ordered})
+         this.cart.at(-1).quantity = 1
       }
 
       // Decrease the quantity of product in product list
