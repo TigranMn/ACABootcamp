@@ -1,3 +1,4 @@
+const container = document.querySelector('.liftContainer')
 const leftDoor = document.querySelector('#leftDoor')
 const rightDoor = document.querySelector('#rightDoor')
 const lift = document.querySelector('#lift')
