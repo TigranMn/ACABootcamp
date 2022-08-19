@@ -1,8 +1,6 @@
-const container = document.querySelector('.liftContainer')
 const leftDoor = document.querySelector('#leftDoor')
 const rightDoor = document.querySelector('#rightDoor')
 const lift = document.querySelector('#lift')
-const open = document.querySelector('#open')
 const floorsContainer = document.querySelector('#floors')
 const children = [...floorsContainer.children]
 const buildingHeight = container.clientHeight
@@ -39,10 +37,8 @@ async function main() {
    } 
    liftPosition = liftPosition + dY
    lift.style.bottom = liftPosition + dY + 'px'
-   console.log(nextFloor)
    if((nextFloor - 1) * floorHeight === liftPosition) {
       cancelAnimationFrame(myReq)
-      console.log(nextFloor,floorsQueue)
       await sleep(1000)
       await openDoors()
       floorsQueue.splice(floorsQueue.indexOf(nextFloor),1)
