@@ -31,11 +31,11 @@ async function main() {
       return
    }
    if((nextFloor-1) * floorHeight > liftPosition) {
-      dY = +5
+      dY = +2.5
 
    
    } else if((nextFloor - 1) * floorHeight < liftPosition)  {
-      dY = -5
+      dY = -2.5
    } 
    liftPosition = liftPosition + dY
    lift.style.bottom = liftPosition + dY + 'px'
