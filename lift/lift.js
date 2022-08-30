@@ -22,7 +22,7 @@ floorsContainer.addEventListener('click',(event) => {
 })
 
 async function main() {
-   let currentFloor = Math.max(liftPosition / 75) + 1
+   let currentFloor = Math.max(liftPosition / floorHeight) + 1
    let myReq =  requestAnimationFrame(main)
    let nextFloor = findNextFloor(dY,currentFloor)
    if(!floorsQueue.length || !nextFloor) {
@@ -43,7 +43,6 @@ async function main() {
       await sleep(1000)
       await openDoors()
       floorsQueue.splice(floorsQueue.indexOf(nextFloor),1)
-      // children.find(el => el.innerText === nextFloor).classList.remove('red')
       children.find(el => el.innerText === String(nextFloor)).classList.remove('inQueue')
       requestAnimationFrame(main)
    }
@@ -69,8 +68,8 @@ function findNextFloor(moveDirection,currentFloor) {
    if(moveDirection < 0 && floorsQueue.filter(el => el < currentFloor  ).length) {
       return Math.max(...floorsQueue.filter(el => el < currentFloor))
    }
-   if(floorsQueue.length) {
-      return Math.max(...floorsQueue)
+   if(floorsQueue.filter(el => el > currentFloor).length) {
+      return Math.min(...floorsQueue.filter(el => el > currentFloor))
    }
    return currentFloor
    
