@@ -69,7 +69,7 @@ function findNextFloor(moveDirection,currentFloor) {
       return Math.max(...floorsQueue.filter(el => el < currentFloor))
    }
    if(floorsQueue.filter(el => el > currentFloor).length) {
-      return Math.min(...floorsQueue.filter(el => el > currentFloor))
+      return Math.min(...floorsQueue.filter(el => el > currentFloor ))
    }
    return currentFloor
    
