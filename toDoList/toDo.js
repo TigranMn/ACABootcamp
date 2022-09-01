@@ -1,30 +1,41 @@
 const input = document.querySelector('#plansInput')
 const toDo = document.querySelector('.todo')
 console.log(input)
-input.addEventListener('keydown',creatingNewItem)
+input.addEventListener('keydown',createNewItem)
 
-function creatingNewItem(key) {
+function createNewItem(key) {
    if(key.key === 'Enter' && input.value.replaceAll(' ','')) {
       let container = document.createElement('div')
       container.classList.add('itemContainer')
       let btnContainer = document.createElement('div')
-      btnContainer.append(creatingEditBtn(),creatingDeleteBtn())
+      btnContainer.append(createEditBtn(),createDeleteBtn())
       btnContainer.classList.add('flex')
-      container.append(creatingListItem(),btnContainer)
+      container.append(createListItem(),btnContainer)
       input.value = ''
       toDo.appendChild(container)
 
    }
 }
 
- function creatingListItem() {
+
+function createListItem() {
    let listItem = document.createElement('input')
    listItem.classList.add('listItem')
    listItem.setAttribute('disabled','disabled')
    listItem.value = input.value
+
+   listItem.addEventListener('keydown', (key) => {
+      if(key.key === 'Enter') {
+         let editBtn = listItem.parentElement.childNodes[1].firstChild
+         editBtn.innerText = 'Edit'
+         editBtn.classList.remove('complete')
+         listItem.toggleAttribute('disabled')
+         listItem.classList.toggle('scale')
+      }
+   })
    return listItem
  }
- function creatingEditBtn() {
+ function createEditBtn() {
    let editBtn = document.createElement('button')
 
    editBtn.innerText = 'Edit'
@@ -44,7 +55,7 @@ function creatingNewItem(key) {
    })
    return editBtn
  }
- function creatingDeleteBtn() {
+ function createDeleteBtn() {
    let deleteBtn = document.createElement('button')
    deleteBtn.innerText = 'Delete'
    deleteBtn.classList.add('delete')
